@@ -1,0 +1,10 @@
+.cards-align{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap; 
+}
+.favorite-align{
+    display: flex;
+    /* justify-content: space-around; */
+    flex-flow: column; 
+}
