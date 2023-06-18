@@ -21,11 +21,30 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <input class="form-control me-2 searchBar" type="search" placeholder="Search" aria-label="Search" />
+                    <div class="movie-search-list">
+                        <div class="card movie-search-list-item movie-details" >
+                            <div class="row no-gutters ">
+                                <div class="col-sm-3">
+                                    <img class="card-img"
+                                        src="https://m.media-amazon.com/images/M/MV5BODUwNDNjYzctODUxNy00ZTA2LWIyYTEtMDc5Y2E5ZjBmNTMzXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
+                                        alt="Suresh Dasari Card">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Suresh Dasari </h5>
+                                        <p class="card-text">Suresh Da
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+                    </div>
                     <button class="btn btn-outline-success" type="submit">
                         Search
                     </button>
                 </form>
+
             </div>
         </div>
     </nav>
@@ -37,7 +56,7 @@
 
                 <!-- Movie cards -->
                 <div class="g-col-4">
-                    <div class="card" style="width: 15rem">
+                    <div class="card movie-details" style="width: 15rem">
                         <img src="https://m.media-amazon.com/images/M/MV5BODUwNDNjYzctODUxNy00ZTA2LWIyYTEtMDc5Y2E5ZjBmNTMzXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
                             class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -108,7 +127,7 @@
             </div>
 
             <div class="col-sm-4 favorite-align">col-sm-4
-                <div class="card">
+                <div class="card movie-details ">
                     <div class="row no-gutters ">
                         <div class="col-sm-5">
                             <img class="card-img"

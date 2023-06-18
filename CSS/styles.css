@@ -8,3 +8,29 @@
     /* justify-content: space-around; */
     flex-flow: column; 
 }
+.searchBar{
+    width: 20rem;
+}
+.movie-search-list{
+    position:absolute;
+    background-color: rgba(231, 172, 8, 0.568);
+    margin-top: 2rem;
+    width: 20rem;
+    z-index: 1;
+}
+.movie-search-list-item {
+    height: 4rem;
+    background-color: rgba(231, 172, 8, 0.568);
+    .card-img{
+        height: 3.5rem;
+        width: 3.5rem;
+        margin: .3rem;
+    }
+    .card-body{
+        padding: .3rem;
+        /* height: 4rem; */
+    }
+}
+.movie-details{
+    cursor: pointer;
+}
