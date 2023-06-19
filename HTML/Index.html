@@ -21,8 +21,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 searchBar" type="search" placeholder="Search" aria-label="Search" />
-                    <div class="movie-search-list">
+                    <input class="form-control me-2 searchBar " type="search" placeholder="Search" aria-label="Search" id="movie-search-bar"/>
+                    <div class="movie-search-list" id="movie-search-list">
                         <div class="card movie-search-list-item movie-details" >
                             <div class="row no-gutters ">
                                 <div class="col-sm-3">
@@ -40,7 +40,7 @@
                             </div>
                         </div>        
                     </div>
-                    <button class="btn btn-outline-success" type="submit">
+                    <button class="btn btn-outline-success search-button" type="">
                         Search
                     </button>
                 </form>
@@ -52,10 +52,10 @@
 
     <div class="container text-center">
         <div class="row">
-            <div class="col-sm-8 cards-align ">
+            <div class="col-sm-8 cards-align " id="movie-result-list">
 
                 <!-- Movie cards -->
-                <div class="g-col-4">
+                <div class="g-col-4 ">
                     <div class="card movie-details" style="width: 15rem">
                         <img src="https://m.media-amazon.com/images/M/MV5BODUwNDNjYzctODUxNy00ZTA2LWIyYTEtMDc5Y2E5ZjBmNTMzXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
                             class="card-img-top" alt="..." />
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="g-col-4">.g-col-4
+                <div class="g-col-4 " id=" movie-favorite-list">.g-col-4
                     <div class="card" style="width: 15rem">
                         <img src="https://m.media-amazon.com/images/M/MV5BODUwNDNjYzctODUxNy00ZTA2LWIyYTEtMDc5Y2E5ZjBmNTMzXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
                             class="card-img-top" alt="..." />
