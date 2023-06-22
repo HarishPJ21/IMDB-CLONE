@@ -34,3 +34,9 @@
 .movie-details{
     cursor: pointer;
 }
+.fa-heart{
+    z-index: 1;
+}
+.fa-heart:hover{
+    color: aliceblue;
+}
