@@ -9,12 +9,37 @@ const movieDetailPage = document.getElementById('movie-detail-page');
 const searchButton = document.querySelector('.search-button');
 arrayList = [];
 favArray=[];
+if(localStorage.getItem("array")!="[]"){
+    console.log("local")
+    favArray = JSON.parse(localStorage.getItem("array"));
+    addFavList(favArray);
+    // window.location.href="movie.html";
+}
+const search=(array,searchID)=>{
+    console.log(array," ",searchID);
+    for(let j=0;j<array.length;j++){
+        if(searchID == array[j].imdbID) return j;
+    }
+    return -1;
+}
+delClick=(e)=>{
+    // console.log(e);
+    const searchID=e.parentElement.parentElement.parentElement.parentElement.getAttribute("data-id")
+            
+    const i = search(favArray,searchID);
+    // console.log(i);
+    if(i!=-1){
+        e.parentElement.parentElement.parentElement.parentElement.remove();
+        this.favArray.splice(i,1);
+        localStorage.setItem("array", JSON.stringify(favArray));
+        console.log(this.favArray);
+    }
+}
 mouseOver=(e)=>e.classList.add("fa-solid");
 mouseOut=(e)=>e.classList.remove("fa-solid");
 favClick=(e)=>{
-    // e.stopPropagation();
-    let i=e.getAttribute("data-id")
-    favArray = JSON.parse(localStorage.getItem("array"));
+
+    let i=e.target.getAttribute("data-id")
     favArray.push(arrayList[i]);
     let MovieListItem = document.createElement("div");
     MovieListItem.classList.add("card", "movie-details");
@@ -31,6 +56,11 @@ favClick=(e)=>{
             <div class="card-body">
                 <h5 class="card-title">${arrayList[i].Title}</h5>
                 <p class="card-text">${arrayList[i].Year}</p>
+                <i class="fa-regular fa-trash-can"                  
+                onmouseover=mouseOver(this)
+                onmouseout=mouseOut(this)
+                onclick=delClick(this)>
+                </i>
             </div>
         </div>
     </div>
@@ -39,7 +69,8 @@ favClick=(e)=>{
 
     localStorage.setItem("array", JSON.stringify(favArray));
     console.log(favArray);
-    // e.stopPropogation(); 
+    e.stopPropagation();
+    // e.e.stopPropogation(); 
 }
 
 
@@ -120,7 +151,7 @@ searchButton.addEventListener('click', (e) => {
                 data-id="${i}"
                 onmouseover=mouseOver(this)
                 onmouseout=mouseOut(this)
-                onclick=favClick(this)
+                onclick=favClick(event)
                 style="color: #e7390d;"></i>
             </div>
         </div>
@@ -128,3 +159,59 @@ searchButton.addEventListener('click', (e) => {
         movieResultList.appendChild(MovieListItem);
     }
 });
+
+function addFavList(array) {
+    console.log(array);
+    movieFavoriteList.innerHTML='';
+    for (let i = 0; i < array.length; i++) {
+        let MovieListItem = document.createElement("div");
+        MovieListItem.classList.add("card", "movie-details");
+        MovieListItem.setAttribute("data-id", array[i].imdbID);
+        MovieListItem.addEventListener("click", () => console.log(array[i].imdbID));
+        MovieListItem.innerHTML = `
+        <div class="row no-gutters ">
+            <div class="col-sm-5">
+                <img class="card-img"
+                src="${array[i].Poster}"
+                alt="Suresh Dasari Card">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title">${array[i].Title}</h5>
+                    <p class="card-text">${array[i].Year}</p>
+                    <i class="fa-regular fa-trash-can"                  
+                    onmouseover=mouseOver(this)
+                    onmouseout=mouseOut(this)
+                    onclick=delClick(this)>
+                    </i>
+            </div>
+        </div>
+        `;
+        movieFavoriteList.appendChild(MovieListItem);
+    }
+}
+function moviePage(array) {
+    movieDetailPage.innerHTML = '';
+    // for (let i = 0; i < array.length; i++) {
+        let MovieListItem = document.createElement("div");
+        MovieListItem.classList.add("container");
+        // MovieListItem.setAttribute("data-id", array[i].imdbID);
+        // MovieListItem.addEventListener("click", () => console.log(array[i].imdbID));
+        MovieListItem.innerHTML = `
+        <div class="col-sm-5">
+            <img
+            class="card-img"
+            src="${array[i].Poster}"
+            alt="Suresh Dasari Card"
+            />
+        </div>
+        <div class="col-sm-7">
+            <div class="card-body">
+            <h5 class="card-title">${array[i].Title}</h5>
+            <p class="card-text">${array[i].Year}</p>
+            </div>
+        </div>
+        `;
+        movieDetailPage.appendChild(MovieListItem);
+    // }
+}
