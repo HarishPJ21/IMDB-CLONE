@@ -1,3 +1,13 @@
+:root {
+    --listbgc: rgba(231, 172, 8, 0.568);
+    --navbarc: orange;
+    --resultlistbgc: yellow;
+    --favlistbgc:rgb(195, 0, 255);
+    --movieDetailHeader: green;
+    --movieDetailValue: white;
+  }
+  
+
 .cards-align{
     display: flex;
     justify-content: space-around;
@@ -13,14 +23,14 @@
 }
 .movie-search-list{
     position:absolute;
-    background-color: rgba(231, 172, 8, 0.568);
+    background-color: var(--listbgc);
     margin-top: 2rem;
     width: 20rem;
     z-index: 1;
 }
 .movie-search-list-item {
     height: 4rem;
-    background-color: rgba(231, 172, 8, 0.568);
+    background-color: var(--listbgc);
     .card-img{
         height: 3.5rem;
         width: 3.5rem;
@@ -39,4 +49,25 @@
 }
 .fa-heart:hover{
     color: aliceblue;
+}
+
+.navbar-brand{
+    color: orange;
+    background-color: black;
+    
+}
+
+.navbar-brand span{
+    color: black;
+    background-color: orange;
+}
+.navbar, body{
+    background-color: var(--navbarc) !important;
+}
+#movie-result-list{
+    background-color: var(--resultlistbgc) ;
+    /* margin-right: 1rem; */
+}
+#movie-favorite-list{
+    background-color: var(--favlistbgc);
 }
