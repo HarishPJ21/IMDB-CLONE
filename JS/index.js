@@ -23,17 +23,18 @@ const search=(array,searchID)=>{
     return -1;
 }
 delClick=(e)=>{
-    // console.log(e);
-    const searchID=e.parentElement.parentElement.parentElement.parentElement.getAttribute("data-id")
+    console.log(e);
+    const searchID=e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("data-id")
             
     const i = search(favArray,searchID);
     // console.log(i);
     if(i!=-1){
-        e.parentElement.parentElement.parentElement.parentElement.remove();
+        e.target.parentElement.parentElement.parentElement.parentElement.remove();
         this.favArray.splice(i,1);
         localStorage.setItem("array", JSON.stringify(favArray));
         console.log(this.favArray);
     }
+    e.stopPropagation();
 }
 mouseOver=(e)=>e.classList.add("fa-solid");
 mouseOut=(e)=>e.classList.remove("fa-solid");
@@ -42,7 +43,7 @@ favClick=(e)=>{
     let i=e.target.getAttribute("data-id")
     favArray.push(arrayList[i]);
     let MovieListItem = document.createElement("div");
-    MovieListItem.classList.add("card", "movie-details");
+    MovieListItem.classList.add("card", "movie-details","space-align","bg-color");
     MovieListItem.setAttribute("data-id", arrayList[i].imdbID);
     MovieListItem.addEventListener("click", () => console.log(arrayList[i].imdbID));
     MovieListItem.innerHTML = `
@@ -59,7 +60,7 @@ favClick=(e)=>{
                 <i class="fa-regular fa-trash-can"                  
                 onmouseover=mouseOver(this)
                 onmouseout=mouseOut(this)
-                onclick=delClick(this)>
+                onclick=delClick(event)>
                 </i>
             </div>
         </div>
@@ -134,11 +135,11 @@ searchButton.addEventListener('click', (e) => {
     let array = arrayList;
     for (let i = 0; i < array.length; i++) {
         let MovieListItem = document.createElement("div");
-        MovieListItem.classList.add("g-col-4");
+        MovieListItem.classList.add("g-col-4","space-align");
         MovieListItem.setAttribute("data-id", array[i].imdbID);
         MovieListItem.addEventListener("click", () => console.log(array[i].imdbID));
         MovieListItem.innerHTML = `
-        <div class="card movie-details" style="width: 15rem">
+        <div class="card movie-details bg-color" style="width: 15rem">
             <img class="card-img-top"
             src="${array[i].Poster}"
             />
@@ -165,7 +166,7 @@ function addFavList(array) {
     movieFavoriteList.innerHTML='';
     for (let i = 0; i < array.length; i++) {
         let MovieListItem = document.createElement("div");
-        MovieListItem.classList.add("card", "movie-details");
+        MovieListItem.classList.add("card", "movie-details","space-align","bg-color");
         MovieListItem.setAttribute("data-id", array[i].imdbID);
         MovieListItem.addEventListener("click", () => console.log(array[i].imdbID));
         MovieListItem.innerHTML = `
@@ -182,7 +183,7 @@ function addFavList(array) {
                     <i class="fa-regular fa-trash-can"                  
                     onmouseover=mouseOver(this)
                     onmouseout=mouseOut(this)
-                    onclick=delClick(this)>
+                    onclick=delClick(event)>
                     </i>
             </div>
         </div>

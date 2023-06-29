@@ -1,10 +1,11 @@
 :root {
     --listbgc: rgba(231, 172, 8, 0.568);
-    --navbarc: orange;
+    --navbarc: linear-gradient(to right, black, orange);
     --resultlistbgc: yellow;
     --favlistbgc:rgb(195, 0, 255);
     --movieDetailHeader: green;
     --movieDetailValue: white;
+    --Cardcolor: linear-gradient(to right, rgba(49, 44, 44, 0.945), black );
   }
   
 
@@ -41,6 +42,16 @@
         /* height: 4rem; */
     }
 }
+.col-sm-5 {
+    height: 8rem;
+}
+.space-align{
+    margin: 15px 0px;
+}
+.bg-color{
+    background: var(--Cardcolor);
+    color: orange;
+}
 .movie-details{
     cursor: pointer;
 }
@@ -62,12 +73,29 @@
     background-color: orange;
 }
 .navbar, body{
-    background-color: var(--navbarc) !important;
+    background: var(--navbarc) !important;
 }
 #movie-result-list{
-    background-color: var(--resultlistbgc) ;
+    border: 1px solid  orange !important;
+    
+    /* var(--resultlistbgc) ; */
     /* margin-right: 1rem; */
 }
 #movie-favorite-list{
-    background-color: var(--favlistbgc);
+    border: 1px solid var(--favlistbgc);
+    .card-img{
+        height: 100%;
+        padding: 1%;
+    }
+}
+.btn-outline-success {
+    --bs-btn-color: black;
+    --bs-btn-border-color: black;
+}
+.text-center{
+    margin: 20px 40px;
+}
+.fa-search{
+    width: 100%;
+    height: 100%;
 }
