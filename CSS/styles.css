@@ -8,7 +8,12 @@
     --Cardcolor: linear-gradient(to right, rgba(49, 44, 44, 0.945), black );
   }
   
-
+#search-heading{
+    color : #ff7800;;
+}
+#favorite-heading{
+    color: rgb(143 9 131);
+}
 .cards-align{
     display: flex;
     justify-content: space-around;
@@ -77,17 +82,26 @@
 }
 #movie-result-list{
     border: 1px solid  orange !important;
-    
-    /* var(--resultlistbgc) ; */
-    /* margin-right: 1rem; */
+    height: 600px;
+    overflow-y: scroll;
+}
+#movie-result-list img,#movie-favorite-list img{
+    height: 75%;
+    padding-top: 12%
 }
 #movie-favorite-list{
+    height: 600px;
+    overflow-y: scroll;
     border: 1px solid var(--favlistbgc);
     .card-img{
         height: 100%;
         padding: 1%;
     }
 }
+#movie-favorite-list::-webkit-scrollbar, #movie-result-list::-webkit-scrollbar {
+    display: none;
+}
+
 .btn-outline-success {
     --bs-btn-color: black;
     --bs-btn-border-color: black;
@@ -98,4 +112,15 @@
 .fa-search{
     width: 100%;
     height: 100%;
+}
+
+
+
+/* movie page */
+
+.movie-details-card{
+    margin: 50px;
+}
+#movie-detail-page img{
+        height: 535px;
 }
