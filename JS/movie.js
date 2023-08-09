@@ -4,6 +4,8 @@ let movieDetails = JSON.parse(localStorage.getItem("movieDetails"));
 
 moviePage();
 
+//rendering the movie details page form the data fetched from local storage using movieDetials value
+
 function moviePage() {
     console.log("MovieDetails:",movieDetails);
         movieDetailPage.innerHTML = `
@@ -11,7 +13,6 @@ function moviePage() {
             <img
               class="card-img"
               src="${movieDetails.Poster}"
-              alt="Suresh Dasari Card"
             />
           </div>
           <div class="col-sm-7">

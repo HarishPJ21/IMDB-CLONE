@@ -7,16 +7,18 @@ const movieResultList = document.getElementById('movie-result-list');
 const movieFavoriteList = document.getElementById('movie-favorite-list');
 const searchButton = document.querySelector('.search-button');
 
-// movieDetailPage.innerHTML='';
 arrayList = [];
 favArray=[];
 let movieDetails={};
+// assigning value fromm local storage
+
 if(localStorage.getItem("array")!="[]"){
     // console.log("local")
     favArray = JSON.parse(localStorage.getItem("array"));
     addFavList(favArray);
-    // window.location.href="movie.html";
 }
+
+// search the item from the array of results
 const search=(array,searchID)=>{
     console.log(array," ",searchID);
     for(let j=0;j<array.length;j++){
@@ -24,6 +26,9 @@ const search=(array,searchID)=>{
     }
     return -1;
 }
+
+// Delete the item from the fav array 
+
 delClick=(e)=>{
     console.log(e);
     const searchID=e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("data-id")
@@ -39,8 +44,12 @@ delClick=(e)=>{
     if(favArray.length==0) movieFavoriteList.innerHTML='<img src="https://cdn-icons-png.flaticon.com/512/9427/9427538.png " alt="">'
     e.stopPropagation();
 }
+
+//ading/removing class on hover
 mouseOver=(e)=>e.classList.add("fa-solid");
 mouseOut=(e)=>e.classList.remove("fa-solid");
+
+//adding to favorite on click of favorite icon
 favClick=(e)=>{
 
     let i=e.target.getAttribute("data-id")
@@ -49,10 +58,10 @@ favClick=(e)=>{
     addFavList(favArray);
     console.log(favArray);
     e.stopPropagation();
-    // e.e.stopPropogation(); 
 }
 
 
+//fetch the list of movies from the name searched
 
 async function MovieList(name) {
     const URL = `https://www.omdbapi.com/?apikey=4e0d0187&s=${name}`;
@@ -63,6 +72,9 @@ async function MovieList(name) {
     if (data.Response) SearchList(data.Search);
     // return data.Search;
 }
+
+//fetch the movie details from the id searched
+
 async function MovieDetail(ImdbId) {
     const URL = `https://www.omdbapi.com/?apikey=4e0d0187&i=${ImdbId}`;
     const res = await fetch(`${URL}`);
@@ -75,6 +87,7 @@ async function MovieDetail(ImdbId) {
 }
 // MovieDetail('tt4244162')
 
+//rendering the page with the search resutls
 function SearchList(array) {
     movieSearchList.innerHTML = '';
     for (let i = 0; i < array.length; i++) {
@@ -101,16 +114,16 @@ function SearchList(array) {
     }
 }
 
+//getting data from text typed and calling the movielist function
 if(movieSearchBar!=undefined){
     movieSearchBar.addEventListener('keyup', () => {
         // const SearchTerm=movieSearchBar.value.trim();
         MovieList(movieSearchBar.value);
     })    
 }
-// MovieList('rrr');
-// MovieDetail("tt2631186");
 
-if(searchButton!=undefined){
+//rendering the dropdown below search bar with the word typed
+
     searchButton.addEventListener('click', (e) => {
         e.preventDefault();
         movieSearchList.innerHTML = '';
@@ -144,8 +157,8 @@ if(searchButton!=undefined){
             movieResultList.appendChild(MovieListItem);
         }
     });    
-}
 
+// rendering the add favorite part of the page    
 function addFavList(array) {
     console.log(array);
     if(movieFavoriteList==undefined) return;
