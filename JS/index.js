@@ -67,9 +67,11 @@ async function MovieList(name) {
     const URL = `https://www.omdbapi.com/?apikey=4e0d0187&s=${name}`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
-    console.log(data);
-    arrayList=data.Search;
-    if (data.Response) SearchList(data.Search);
+    // console.log("data:",data);
+    if (data.Response=='True'){
+        arrayList=data.Search;
+        SearchList(data.Search);
+    } 
     // return data.Search;
 }
 
@@ -130,7 +132,8 @@ if(movieSearchBar!=undefined){
         movieResultList.innerHTML = '';
         // console.log(arrayList.length);
         let array = arrayList;
-        for (let i = 0; i < array.length; i++) {
+        console.log(arrayList);
+        for (let i = 0;  i < array.length; i++) {
             let MovieListItem = document.createElement("div");
             MovieListItem.classList.add("g-col-4","space-align");
             MovieListItem.setAttribute("data-id", array[i].imdbID);
