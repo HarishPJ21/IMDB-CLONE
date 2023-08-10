@@ -81,7 +81,7 @@ async function MovieDetail(ImdbId) {
     movieDetails = await res.json();
     localStorage.setItem('movieDetails',JSON.stringify(movieDetails));
     console.log("data:",movieDetails);
-    window.location.href="movie.html";
+    window.location.href="docs/movie.html";
     moviePage();
     // return data;
 }
