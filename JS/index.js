@@ -128,7 +128,7 @@ if(movieSearchBar!=undefined){
         e.preventDefault();
         movieSearchList.innerHTML = '';
         movieResultList.innerHTML = '';
-        console.log(e);
+        // console.log(arrayList.length);
         let array = arrayList;
         for (let i = 0; i < array.length; i++) {
             let MovieListItem = document.createElement("div");
@@ -156,6 +156,8 @@ if(movieSearchBar!=undefined){
     `;
             movieResultList.appendChild(MovieListItem);
         }
+        if(array.length==0) movieResultList.innerHTML='<img src="https://cdn-icons-png.flaticon.com/512/1076/1076336.png" alt="">'
+
     });    
 
 // rendering the add favorite part of the page    
