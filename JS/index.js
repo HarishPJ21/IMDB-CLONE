@@ -12,7 +12,7 @@ favArray=[];
 let movieDetails={};
 // assigning value fromm local storage
 
-if(localStorage.getItem("array")!="[]"){
+if(localStorage.getItem("array")!=null){
     // console.log("local")
     favArray = JSON.parse(localStorage.getItem("array"));
     addFavList(favArray);
