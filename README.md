@@ -21,7 +21,7 @@ in this project we cloned IMDB website. we used imdb api's for the same. we have
 
 ![image](https://github.com/HarishPJ21/IMDB-CLONE/assets/38295998/2dd043df-57cd-4820-98b4-2e9666844b7f)
 
-#functionalities
+# functionalities
 
 we have added below functionalities:
 
