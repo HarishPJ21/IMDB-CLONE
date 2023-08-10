@@ -156,7 +156,7 @@ if(movieSearchBar!=undefined){
     `;
             movieResultList.appendChild(MovieListItem);
         }
-        if(array.length==0) movieResultList.innerHTML='<img src="https://cdn-icons-png.flaticon.com/512/1076/1076336.png" alt="">'
+        if(arrayList.length==0) movieResultList.innerHTML='<img src="https://cdn-icons-png.flaticon.com/512/1076/1076336.png" alt="">'
 
     });    
 
